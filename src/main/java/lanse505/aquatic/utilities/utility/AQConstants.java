@@ -1,6 +1,7 @@
 package lanse505.aquatic.utilities.utility;
 
 import lanse505.aquatic.utilities.common.scuba.ScubaChest;
+import lanse505.aquatic.utilities.common.scuba.ScubaRebreather;
 import net.minecraft.item.Item;
 
 public class AQConstants {
@@ -15,5 +16,6 @@ public class AQConstants {
 
     // Item
     public static Item SCUBA_TANK = new ScubaChest();
+    public static Item REBREATHER = new ScubaRebreather();
 
 }
