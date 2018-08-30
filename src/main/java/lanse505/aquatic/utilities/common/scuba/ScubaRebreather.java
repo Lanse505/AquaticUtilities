@@ -2,23 +2,18 @@ package lanse505.aquatic.utilities.common.scuba;
 
 import lanse505.aquatic.utilities.AquaticUtilities;
 import lanse505.aquatic.utilities.common.core.ItemModArmor;
-import lanse505.aquatic.utilities.utility.AQConstants;
 import lanse505.aquatic.utilities.utility.AQMaterials;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.client.model.ModelLoader;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -28,8 +23,13 @@ public class ScubaRebreather extends ItemModArmor {
 
     public ScubaRebreather() {
         super(AQMaterials.scubaMaterial, EntityEquipmentSlot.HEAD, "scuba_rebreather");
-        setCreativeTab(AquaticUtilities.aqCreativeTab);
+        setCreativeTab(AquaticUtilities.TAB);
     }
+
+    public void initModel() {
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
+
 
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {

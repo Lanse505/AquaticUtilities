@@ -13,28 +13,28 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(modid = AQConstants.MOD_ID, name = AQConstants.MOD_NAME, version = AQConstants.VERSION, acceptedMinecraftVersions = AQConstants.MCVER)
 public class AquaticUtilities {
-    public static AQCreativeTab aqCreativeTab = new AQCreativeTab();
+    public static AQCreativeTab TAB = new AQCreativeTab();
 
     @SidedProxy(serverSide = AQConstants.PROXY_COMMON, clientSide = AQConstants.PROXY_CLIENT, modId = AQConstants.MOD_ID)
-    public static CommonProxy proxy;
-    public static Logger logger;
+    public static CommonProxy PROXY;
+    public static Logger LOGGER;
 
     @Mod.Instance
     public static AquaticUtilities aqUtils;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        logger = event.getModLog();
-        proxy.preInit(event);
+        LOGGER = event.getModLog();
+        PROXY.preInit(event);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        proxy.init(event);
+        PROXY.init(event);
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        proxy.postInit(event);
+        PROXY.postInit(event);
     }
 }

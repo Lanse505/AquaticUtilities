@@ -1,6 +1,6 @@
 package lanse505.aquatic.utilities.utility;
 
-import lanse505.aquatic.utilities.common.scuba.ScubaChest;
+import lanse505.aquatic.utilities.common.scuba.ScubaTank;
 import lanse505.aquatic.utilities.common.scuba.ScubaRebreather;
 import net.minecraft.item.Item;
 
@@ -15,7 +15,7 @@ public class AQConstants {
     public static final String PROXY_CLIENT = "lanse505.aquatic.utilities.client.ClientProxy";
 
     // Item
-    public static Item SCUBA_TANK = new ScubaChest();
+    public static Item SCUBA_TANK = new ScubaTank();
     public static Item REBREATHER = new ScubaRebreather();
 
 }

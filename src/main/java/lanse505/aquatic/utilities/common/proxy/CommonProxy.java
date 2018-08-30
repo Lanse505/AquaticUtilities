@@ -1,7 +1,8 @@
 package lanse505.aquatic.utilities.common.proxy;
 
-import lanse505.aquatic.utilities.common.scuba.ScubaChest;
-import lanse505.aquatic.utilities.common.scuba.ScubaHelmet;
+import lanse505.aquatic.utilities.common.core.ItemModArmor;
+import lanse505.aquatic.utilities.common.scuba.ScubaTank;
+import lanse505.aquatic.utilities.common.scuba.ScubaMask;
 import lanse505.aquatic.utilities.common.scuba.ScubaRebreather;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -14,6 +15,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
+    public static ItemModArmor REBREATHER = new ScubaRebreather();
+    public static ItemModArmor SCUBA_TANK = new ScubaTank();
+
     public void preInit(FMLPreInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new ScubaRebreather());
     }
@@ -26,16 +30,14 @@ public class CommonProxy {
 
     }
 
-    public void registerItemRenderer(Item item, int meta, String id) {
-
-    }
-
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
-                new ScubaHelmet(),
-                new ScubaChest(),
+                new ScubaMask(),
+                new ScubaTank(),
                 new ScubaRebreather()
         );
     }
+
+
 }

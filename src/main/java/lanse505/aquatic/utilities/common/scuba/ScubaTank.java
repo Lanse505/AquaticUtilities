@@ -3,6 +3,7 @@ package lanse505.aquatic.utilities.common.scuba;
 import lanse505.aquatic.utilities.AquaticUtilities;
 import lanse505.aquatic.utilities.common.core.ItemModArmor;
 import lanse505.aquatic.utilities.utility.AQMaterials;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -11,17 +12,21 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import org.lwjgl.input.Keyboard;
+import net.minecraftforge.client.model.ModelLoader;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 
-public class ScubaChest extends ItemModArmor {
+public class ScubaTank extends ItemModArmor {
 
-    public ScubaChest() {
+    public ScubaTank() {
         super(AQMaterials.scubaMaterial, EntityEquipmentSlot.CHEST, "scuba_tank");
-        setCreativeTab(AquaticUtilities.aqCreativeTab);
+        setCreativeTab(AquaticUtilities.TAB);
+    }
+
+    public void initModel() {
+        ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 
     private NBTTagCompound getTagCompoundSafe(ItemStack stack) {
